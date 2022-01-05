@@ -15,3 +15,9 @@ By starting with 1 and 2, the first 10 terms will be:
 By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 find the sum of the even-valued terms.
 ```
+
+3. [Largest Prime Factor (Elixir)](https://github.com/kwardynski/project_euler/tree/master/Problem003)
+```
+The prime factors of 13195 are 5, 7, 13 and 29.
+What is the largest prime factor of the number 600851475143?
+```
