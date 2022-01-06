@@ -22,7 +22,7 @@ The prime factors of 13195 are 5, 7, 13 and 29.
 What is the largest prime factor of the number 600851475143?
 ```
 
-4. [Largest Palindrome Product (MATLAB/Octage)](https://github.com/kwardynski/project_euler/tree/master/Problem004)
+4. [Largest Palindrome Product (MATLAB/Octave)](https://github.com/kwardynski/project_euler/tree/master/Problem004)
 ```
 A palindromic number reads the same both ways. The largest palindrome made from the
 product of two 2-digit numbers is 9009 = 91 x 99.
