@@ -29,7 +29,7 @@ product of two 2-digit numbers is 9009 = 91 x 99.
 Find the largest palindrome made from the product of two 3-digit numbers.
 ```
 
-5. [Smallest Multiple(Elixir)](https://github.com/kwardynski/project_euler/tree/master/Problem005)
+5. [Smallest Multiple (Elixir)](https://github.com/kwardynski/project_euler/tree/master/Problem005)
 ```
 2520 is the smallest number that can be divided by each of the numbers from 1 
 to 10 without any remainder.
