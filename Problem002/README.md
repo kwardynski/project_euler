@@ -9,31 +9,31 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 For this problem I'm going to leverage Elixir's pattern matching and tail-call optimization. Doing it this way speeds up the "recursion" significantly.
 
 The module EvenFib has three definitions of `fib_accumulator/3` which takes the following three arguments:
-1. value 1 (i.e. fib(n))
-2. Value 2 (i.e. fin(n+1))
-3. accumulator (i.e. the running sum of EVEN Fibonacci numbers)
-
+1. `value_current` (i.e. `fib(n)`)
+2. `val_next` (i.e. `fin(n+1)`)
+3. `acc` (i.e. the running sum of EVEN Fibonacci numbers)
 
 ### Clause 1 - pattern match against val1+val2 - see if ceiling reached
-If val1+val2 exceeds 4 million (the ceiling specified by the problem), return the calculated accumulator. This ensures we STOP once we reach the 4 million ceiling.
+If `val_current` exceeds 4 million (the ceiling specified by the problem), return the calculated accumulator. This ensures we STOP once we reach the 4 million ceiling.
 
-### Clause 2 - pattern match against val1+val2 - see if even
-If val1+val2 is even, add that to the accumulator and move to the next Fibonacci number.
+### Clause 2 - pattern match against `val_current` - see if even
+If `val_current` is even, add that to the `acc` and move to the next Fibonacci number.
 
 ### Clause 3: no guards
-If none of the previous guards pass, we can assume we've got an odd number on our hands, therefore we can simply move on to the next Fibonacci number and pass through the incoming accumulator.
+If none of the previous guards pass, we can assume `val_current` is odd,, therefore we can simply move on to the next Fibonacci number and pass through the incoming accumulator.
 
 
 ## Result:
 ```
-iex
-iex(1)> c("even_fibonacci.ex")
-[EvenFib]
-iex(2)> EvenFib.fib_accumulator(0,1,0)
+elixir even_fibonacci.exs
 4613732
-
-Solving this problem this way in Elixir is ridiculously fast:
-iex(3)> :timer.tc(EvenFib, :fib_accumulator, [0,1,0])
-{2, 4613732}
-!! THAT'S 2 MICROSECONDS !! 
 ```
+
+Leveraging tail-call optimization with Elixir makes this solution incredibly fast.
+We can time the call to `EvenFibSum.run()` by wrapping it in a `:timer.tc` call:
+
+```
+elixir even_fibonacci.exs
+{0, 4613732}
+```
+That's 0 microseconds on a 16GB M2 Mac, meaning the execution happens _faster_ than the lowest granularity of time that `:timer.tc` can resolve. 
